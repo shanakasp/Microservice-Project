@@ -19,14 +19,14 @@ app.use((req, res, next) => {
 const commentsByPostId = {}; // Corrected variable name
 
 app.get("/posts/:id/comments", (req, res) => {
-  res.send(commentsByPostId[req.params.id] || []); // Removed extra square bracket
+  res.send(commentsByPostId[req.params.id] || []);
 });
 
 app.post("/posts/:id/comments", (req, res) => {
   const commentId = randomBytes(4).toString("hex");
   const { content } = req.body;
 
-  const comments = commentsByPostId[req.params.id] || []; // Corrected variable name and added initialization
+  const comments = commentsByPostId[req.params.id] || [];
 
   comments.push({ id: commentId, content });
 
