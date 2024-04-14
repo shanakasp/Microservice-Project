@@ -1,11 +1,25 @@
 const express = require("express");
 const { randomBytes } = require("crypto");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 const app = express();
+
+// Middleware to parse JSON bodies
+app.use(bodyParser.json());
+
+// Middleware for enabling CORS
+app.use(cors());
+
+// Custom middleware to log API path
+app.use((req, res, next) => {
+  console.log(`API Path accessed: ${req.method} ${req.path}`);
+  next();
+});
 
 const posts = {};
 
 app.get("/posts", (req, res) => {
-  res.send(posts); // Sending a response for GET request
+  res.send(posts);
 });
 
 app.post("/posts", (req, res) => {
@@ -17,11 +31,11 @@ app.post("/posts", (req, res) => {
     title,
   };
 
-  res.status(200).send(posts[id]);
+  res.status(201).send(posts[id]);
 });
 
 // Start the server
-const PORT = 3000; // Choose any port you prefer
+const PORT = 4000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
