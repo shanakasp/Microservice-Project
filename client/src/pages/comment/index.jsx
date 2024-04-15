@@ -1,3 +1,4 @@
+import axios from "axios"; // Import Axios
 import React, { useState } from "react";
 
 const Index = ({ postId }) => {
@@ -8,9 +9,13 @@ const Index = ({ postId }) => {
     console.log(content);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
+
+    await axios.post(`http://localhost:4001/posts/${postId}/comments`, {
+      content,
+    });
+    setContent("");
   };
 
   return (

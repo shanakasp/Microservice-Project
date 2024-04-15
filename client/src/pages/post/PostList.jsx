@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import CommentCreate from "../comment/index";
 const PostList = () => {
   const [posts, setposts] = useState({});
   const fetchPosts = async () => {
@@ -24,6 +24,7 @@ const PostList = () => {
         <div className="card-body">
           <h4>{post.title}</h4>
           <p>{post.body}</p>
+          <CommentCreate postId={post.id}></CommentCreate>
         </div>
       </div>
     );
