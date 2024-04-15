@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import CommentList from "../comment/CommentList";
 import CommentCreate from "../comment/index";
 const PostList = () => {
   const [posts, setposts] = useState({});
@@ -24,6 +25,7 @@ const PostList = () => {
         <div className="card-body">
           <h4>{post.title}</h4>
           <p>{post.body}</p>
+          <CommentList postId={post.id}></CommentList>
           <CommentCreate postId={post.id}></CommentCreate>
         </div>
       </div>

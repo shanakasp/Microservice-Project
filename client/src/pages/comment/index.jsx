@@ -22,12 +22,14 @@ const Index = ({ postId }) => {
     <div>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>New Comment</label>
+          <label style={{ marginBottom: "20px" }}>New Comment</label>
+
           <input
             value={content}
             onChange={handleContentChange}
             className="form-control"
             placeholder="Enter comment"
+            style={{ marginBottom: "20px" }}
           />
         </div>
         <button type="submit" className="btn btn-primary">
