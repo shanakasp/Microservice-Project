@@ -3,7 +3,17 @@ import React from "react";
 const Index = () => {
   return (
     <div>
-      <h1>Post</h1>
+      <form>
+        <div className="form-control">
+          <label>Title</label>
+          <input
+            className="form-control"
+            type="text"
+            placeholder="Title"
+          ></input>
+        </div>
+        <button className="btn btn-primary">Submit</button>
+      </form>
     </div>
   );
 };
