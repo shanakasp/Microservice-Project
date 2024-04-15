@@ -10,7 +10,7 @@ const PostList = () => {
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  });
 
   console.log(posts);
 
