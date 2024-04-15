@@ -11,7 +11,7 @@ const CommentList = ({ postId }) => {
         );
         const data = await response.json();
         console.log("Received data:", data); // Log received data
-        setComments(data || []);
+        setComments(data);
       } catch (error) {
         console.error(`Error fetching comments for postId ${postId}:`, error);
       }
